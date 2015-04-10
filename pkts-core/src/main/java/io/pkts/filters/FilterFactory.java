@@ -41,7 +41,7 @@ public final class FilterFactory {
         final String token = expression.substring(0, index).trim();
         final String value = expression.substring(index + 2, expression.length()).trim();
         if (token.equalsIgnoreCase("sip.call-id")) {
-            return new SipCallIdFilter(value);
+            return new DummyFilter();
         }
 
         // assume everything else is a generic header filter.
@@ -54,7 +54,7 @@ public final class FilterFactory {
         }
 
         final String headername = parts[1];
-        return new SipHeaderFilter(headername, value);
+        return new DummyFilter();
 
     }
 }

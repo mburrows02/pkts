@@ -5,7 +5,6 @@ package io.pkts.packet.impl;
 
 import io.pkts.buffer.Buffer;
 import io.pkts.framer.RTPFramer;
-import io.pkts.framer.SIPFramer;
 import io.pkts.packet.IPPacket;
 import io.pkts.packet.Packet;
 import io.pkts.packet.TransportPacket;
@@ -18,7 +17,6 @@ import java.io.IOException;
  */
 public abstract class TransportPacketImpl extends AbstractPacket implements TransportPacket {
 
-    private static final SIPFramer sipFramer = new SIPFramer();
     private static final RTPFramer rtpFramer = new RTPFramer();
 
     private final IPPacket parent;
@@ -228,9 +226,7 @@ public abstract class TransportPacketImpl extends AbstractPacket implements Tran
             return null;
         }
 
-        if (sipFramer.accept(payload)) {
-            return sipFramer.frame(this, payload);
-        } else if (rtpFramer.accept(payload)) {
+        if (rtpFramer.accept(payload)) {
             return rtpFramer.frame(this, payload);
         } else {
             return new UnknownApplicationPacketImpl(this, payload);

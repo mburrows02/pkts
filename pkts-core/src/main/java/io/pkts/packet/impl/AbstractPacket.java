@@ -8,7 +8,6 @@ import io.pkts.packet.IPPacket;
 import io.pkts.packet.Packet;
 import io.pkts.packet.TransportPacket;
 import io.pkts.packet.UDPPacket;
-import io.pkts.packet.sip.SipPacket;
 import io.pkts.protocol.Protocol;
 
 import java.io.IOException;

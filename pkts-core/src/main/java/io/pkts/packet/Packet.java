@@ -5,7 +5,6 @@ package io.pkts.packet;
 
 import io.pkts.PcapOutputStream;
 import io.pkts.buffer.Buffer;
-import io.pkts.packet.sip.SipPacket;
 import io.pkts.protocol.Protocol;
 
 import java.io.IOException;
